@@ -6,3 +6,5 @@ applications:
   host: cf-workshop-spring-mvc
   domain: cfapps.io
   path: ./target/cf-workshop-spring-mvc-0.1.war
+  services: {
+    }

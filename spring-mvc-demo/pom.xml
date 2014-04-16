@@ -55,18 +55,20 @@
 	</dependencies>
 
 	<properties>
-		<start-class>com.gopivotal.cf.workshop.Application</start-class>
-		<java.version>1.7</java.version>
+		<!--	start-class not needed when running as a WAR  -->
+		<!--	<start-class>com.gopivotal.cf.workshop.Application</start-class>  -->		
+ 			<java.version>1.7</java.version>
 	</properties>
 
-	<build>
+<!--  spring-boot-maven-plugin not needed when creating a WAR -->
+<!-- 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->
 
 	<repositories>
 		<!-- Necessary for Spring Cloud.  Hopefully not needed after Spring Cloud version > 1 -->
@@ -77,5 +79,5 @@
 		</repository>
 	</repositories>
 
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 </project>
