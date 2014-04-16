@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: cf-spring-mvc-demo
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: as2o8er
+Implementation-Vendor-Id: org.demo
+Build-Jdk: 1.8.0_77
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
