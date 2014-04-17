@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TreeMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -106,6 +107,18 @@ public class CloudFoundryWorkshopController {
 		model.addAttribute("sessions", sessions);
 		
 		return "sessions";
+	}
+
+	@RequestMapping(value = "/environment", method = RequestMethod.GET)
+	public String environment(Model model) throws Exception {
+			
+		//	Dump the environment variables to the page.  
+		//	The TreeMap produces alphabetical order:
+		model.addAttribute(
+			"environmentVariables", 
+			new TreeMap<String,String>(System.getenv()));
+
+		return "env";
 	}
 	
 	/**
