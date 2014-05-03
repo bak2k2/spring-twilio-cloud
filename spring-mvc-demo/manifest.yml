@@ -4,6 +4,7 @@ applications:
   instances: 1
   host: kk1
   domain: cfapps.io
-  path: ./target/cf-workshop-spring-mvc-0.1.war
-  services: {
-    }
+  path: ./target/cf-workshop-spring-mvc-demo-0.0.1-SNAPSHOT.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack
+
+

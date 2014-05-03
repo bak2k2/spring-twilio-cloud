@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.demo</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>cf-workshop-spring-mvc-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>cf-workshop-springmvc</name>
