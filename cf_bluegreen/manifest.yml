@@ -1,0 +1,9 @@
+applications:
+- name: bluegreen
+  memory: 1G
+  host: bluegreen
+  domain: cfapps.io
+  path: target/bluegreen-0.0.1-SNAPSHOT.war
+  buildpack: https://github.com/kennyk65/java-buildpack
+
+

@@ -1,0 +1,7 @@
+---
+applications:
+- name: php-demo
+  memory: 256M
+  instances: 1
+  host: php-demo-kk
+  buildpack: https://github.com/zendtech/zend-server-php-buildpack.git
