@@ -9,11 +9,9 @@
 	<properties>
 		<!-- Generic properties -->
 		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<htmlunit.version>2.15</htmlunit.version>
 		<tomcat.version>7.0.54</tomcat.version>
-		<start-class></start-class>
+		<start-class>com.pivotal.joker.SpringBootInitializer</start-class>
 	</properties>
 
 	<parent>
@@ -83,17 +81,10 @@
 					</configuration>
 				</plugin>
 
-				<!-- Specify entry-point class to run as a Java application -->
+				<!-- Package as an executable jar -->
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<configuration>
-						<archive>
-							<manifest>
-								<mainClass>com.pivotal.joker.SpringBootInitializer</mainClass>
-							</manifest>
-						</archive>
-					</configuration>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
 				</plugin>
 			</plugins>
 		</pluginManagement>
