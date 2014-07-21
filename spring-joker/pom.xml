@@ -4,13 +4,12 @@
 	<groupId>org.springframework.samples.service.service</groupId>
 	<artifactId>spring-joker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<properties>
 		<!-- Generic properties -->
 		<java.version>1.8</java.version>
 		<htmlunit.version>2.15</htmlunit.version>
-		<tomcat.version>7.0.54</tomcat.version>
 		<start-class>com.pivotal.joker.SpringBootInitializer</start-class>
 	</properties>
 
@@ -22,29 +21,27 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<scope>provided</scope>
+			<version>1.2</version>
+		</dependency>
+
 		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!--  Don't want embedded tomcat or running as a war on Tomcat fails -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
-		<!-- Spring MVC -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-		</dependency>
-
-		<!-- Other Web dependencies -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
+		<!--  Use Jetty as the embedded servlet container not Tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
@@ -57,11 +54,6 @@
 		</dependency>
 
 		<!-- Test Artifacts -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -89,13 +81,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<dependencyManagement>
-		<dependencies>
-			<!-- Spring IO Platform defines all thrid-party dependencies <dependency> 
-				<groupId>io.spring.platform</groupId> <artifactId>platform-bom</artifactId> 
-				<version>1.0.0.RELEASE</version> <type>pom</type> <scope>import</scope> </dependency> -->
-		</dependencies>
-	</dependencyManagement>
 
 </project>

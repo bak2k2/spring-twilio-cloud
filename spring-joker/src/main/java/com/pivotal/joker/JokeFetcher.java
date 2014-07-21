@@ -1,6 +1,7 @@
 package com.pivotal.joker;
 
 import java.io.StringReader;
+import java.net.UnknownHostException;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpression;
@@ -16,6 +17,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 @Service
 public class JokeFetcher {
 	public static final String FETCH_ERROR = "Unable to fetch data - and that's no joke!";
+
+	public static final String NO_HOST_ERROR = "Unable to access Joke Server - check your network or firewall.";
 
 	public static final String JOKE_URL = "http://www.ajokeaday.com/ChisteAlAzar.asp";
 
@@ -46,7 +49,13 @@ public class JokeFetcher {
 					pageAsXml)));
 			return joke;
 		} catch (Exception e) {
-			return FETCH_ERROR;
+			if (e instanceof UnknownHostException)
+				return NO_HOST_ERROR;
+			else {
+				System.out.println(e.getClass().getSimpleName() + ": "
+						+ e.getLocalizedMessage());
+				return FETCH_ERROR;
+			}
 		}
 	}
 }

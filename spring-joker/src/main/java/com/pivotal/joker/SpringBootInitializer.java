@@ -59,6 +59,9 @@ public class SpringBootInitializer extends SpringBootServletInitializer {
 					logger.info(beanName);
 			}
 		}
+		else {
+			Logger.getGlobal().info("Application starting.");
+		}
 	}
 
 }

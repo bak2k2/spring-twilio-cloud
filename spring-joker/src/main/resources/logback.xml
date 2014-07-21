@@ -7,9 +7,10 @@
 
 <configuration scan="true" scanPeriod="30 seconds">
 
-    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
-        <resetJUL>true</resetJUL>
-    </contextListener>
+<!--  Causes java.lang.ClassCircularityError: java/util/logging/LogRecord -->
+<!--     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"> -->
+<!--         <resetJUL>true</resetJUL> -->
+<!--     </contextListener> -->
 
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
@@ -20,7 +21,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.apache" level="error"/>
+    <logger name="org.apache" level="INFO"/>
 
     <logger name="org.springframework.samples.service.service" level="debug"/> -->
          
