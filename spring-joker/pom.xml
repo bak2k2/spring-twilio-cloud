@@ -7,10 +7,10 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<!-- Generic properties -->
-		<java.version>1.8</java.version>
+		<!-- Java version must match buildpack -->
+		<java.version>1.7</java.version>
+		<!-- HtmlUnit not defined by spring.io -->
 		<htmlunit.version>2.15</htmlunit.version>
-		<start-class>com.pivotal.joker.SpringBootInitializer</start-class>
 	</properties>
 
 	<parent>
@@ -21,6 +21,9 @@
 
 	<dependencies>
 
+		<!-- Tell maven that commons-logging is provided to ignore it.
+			We are using sl4j and logback internally so we don't want
+			Commons logging at all. -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
