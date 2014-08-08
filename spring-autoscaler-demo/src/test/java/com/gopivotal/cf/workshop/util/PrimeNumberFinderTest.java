@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class PrimeNumberFinderTest {
 
-	PrimeNumberFinder finder = new PrimeNumberFinder();
+	CpuResourceWaster finder = new CpuResourceWaster();
 
 
 	@Test

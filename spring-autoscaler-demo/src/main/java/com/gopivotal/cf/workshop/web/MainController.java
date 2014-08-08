@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.TreeMap;
-import java.util.concurrent.Executor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.gopivotal.cf.workshop.entity.Attendee;
-import com.gopivotal.cf.workshop.entity.Session;
-import com.gopivotal.cf.workshop.repository.AttendeeRepository;
-import com.gopivotal.cf.workshop.repository.SessionRepository;
-import com.gopivotal.cf.workshop.util.PrimeNumberFinder;
+import com.gopivotal.cf.workshop.util.CpuResourceWaster;
 
 /**
  * Controller for the Cloud Foundry workshop - Spring MVC version.
@@ -36,13 +30,7 @@ public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
 	@Autowired
-	AttendeeRepository attendeeRepository;
-	
-	@Autowired
-	SessionRepository sessionRepository;
-
-	@Autowired
-	PrimeNumberFinder primeNumberFinder;
+	CpuResourceWaster cpuResourceWaster;
 	
 	@Autowired (required=false) Cloud cloud;
 
@@ -83,36 +71,6 @@ public class MainController {
 		return "index";
 	}
 	
-	/**
-	 * Action to get a list of all attendees.
-	 * @param model The model for this action.
-	 * @return The path to the view.
-	 */
-	@RequestMapping(value = "/attendees", method = RequestMethod.GET)
-	public String attendees(Model model) {
-		
-		Iterable<Attendee> attendees = attendeeRepository.findAll();
-	
-		model.addAttribute("attendees", attendees);
-		return "attendees";
-	}
-	
-	/**
-	 * Action to get a list of all of the sessions for the specified attendee.
-	 * @param attendeeId The ID of the attendee to get the sessions for.
-	 * @param model The model for this action.
-	 * @return The path to the view.
-	 */
-	@RequestMapping(value = "/sessions", method = RequestMethod.GET)
-	public String sessions(@RequestParam("attendeeId") Long attendeeId, Model model) {
-		
-		Attendee attendee = attendeeRepository.findOne(attendeeId);
-		List<Session> sessions = sessionRepository.findByAttendee(attendee);
-		model.addAttribute("attendee", attendee);
-		model.addAttribute("sessions", sessions);
-		
-		return "sessions";
-	}
 
 	@RequestMapping(value = "/environment", method = RequestMethod.GET)
 	public String environment(Model model) throws Exception {
@@ -147,7 +105,7 @@ public class MainController {
 	public String primes(@RequestParam(required=false) Long quantity, Model model) {
 		if (quantity == null) quantity = 10000l;
 		
-		model.addAttribute("primeNumberList", primeNumberFinder.findPrimes(quantity));
+		model.addAttribute("primeNumberList", cpuResourceWaster.findPrimes(quantity));
 		
 		return "primeList";
 	}	
