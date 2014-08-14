@@ -1,19 +1,19 @@
 package com.gopivotal.cf.workshop.util;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 import java.util.concurrent.Executors;
 
 import org.junit.Test;
 
-public class PrimeNumberFinderTest {
+public class CpuResourceWasterTest {
 
 	CpuResourceWaster finder = new CpuResourceWaster();
 
 
 	@Test
-	public void test() {
+	public void testPrimes() {
 		finder.setExecutorService(Executors.newCachedThreadPool());
 		
 		long numberToFind = 100000;
@@ -21,9 +21,17 @@ public class PrimeNumberFinderTest {
 		List<Long> list = finder.findPrimes(numberToFind);
 		assertTrue(list.size() == numberToFind);
 		
-		for (Long l : list) {
-			System.out.println(l);
-		}
+	}
+
+	@Test
+	public void testRandoms() {
+		finder.setExecutorService(Executors.newCachedThreadPool());
+		
+		long numberToFind = 100;
+		
+		List<Long> list = finder.makeRandoms(numberToFind);
+		assertEquals(numberToFind * 100000,list.size());
+		
 	}
 
 }

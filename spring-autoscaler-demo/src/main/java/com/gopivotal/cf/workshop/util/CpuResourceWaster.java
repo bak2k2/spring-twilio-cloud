@@ -32,7 +32,7 @@ public class CpuResourceWaster {
 			futureList.add(
 				executorService.submit(
 					new NextPrimeNumberFinder(
-						generateRandom()
+						BulkRandomNumberMaker.generateRandom()
 					)
 				)
 			);
@@ -51,8 +51,40 @@ public class CpuResourceWaster {
 		
 	}
 	
-	private long generateRandom() {
-		double random = Math.random() * 10000000;
-		return (long)Math.round(random);
+
+	/**
+	 * Set many threads to work creating huge numbers of random 
+	 * numbers, all in the name of squandering CPU.
+	 */
+	public List<Long> makeRandoms(long quantity) {
+
+		List<Long> randomList = new ArrayList<Long>();
+		List<Future<List<Long>>> futureList = new ArrayList<Future<List<Long>>>();
+		if (quantity<1) return randomList;
+		quantity = quantity;
+		
+		//	Launch threads to find random numbers:
+		long l = 0;
+		while ( l++ < quantity) {
+			futureList.add(
+				executorService.submit(
+					new BulkRandomNumberMaker(quantity * 1000)
+				)
+			);
+		}
+		
+		// Gather results:
+		try {
+			for(Future<List<Long>> future : futureList) {
+				randomList.addAll( future.get(20,TimeUnit.SECONDS) );
+			}
+		} catch (Exception e) {
+		    System.err.println("CpuResourceWaster threw exception: " + e.getCause());
+		}
+		
+		return randomList;
+		
 	}
+	
+	
 }

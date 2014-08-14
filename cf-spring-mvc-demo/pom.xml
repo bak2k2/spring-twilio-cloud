@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.demo</groupId>
-	<artifactId>cf-intro-trouble</artifactId>
+	<artifactId>cf-spring-mvc-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>cf-workshot-trouble</name>
-	<description>Spring Boot Project with a fatal flaw</description>
+	<name>cf-spring-mvc-demo</name>
+	<description>Spring Boot Project for CF demo</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
