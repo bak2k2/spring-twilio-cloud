@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>cf-cloud-info-solution</name>
-	<description>HTTP Session Demo project</description>
+	<description>Examining the Cloud Environment - Solution</description>
 	<packaging>war</packaging>
 
 	<properties>
