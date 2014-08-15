@@ -1,1 +1,14 @@
+
 /.project
+=======
+Thumbs.db
+desktop.ini
+.DS_Store
+.classpath
+.settings/
+.project
+
+target/
+
+*.odp#
+*.gradle
