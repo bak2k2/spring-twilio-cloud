@@ -1,0 +1,6 @@
+---
+applications:
+- name: nginx-demo
+  memory: 256M
+  instances: 1
+  host: nginx-demo
