@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.Cloud;
 import org.springframework.cloud.CloudException;
 import org.springframework.cloud.CloudFactory;
@@ -23,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DisplayController {
 
-	//@Autowired
-	//List<ServiceInfo> services;
 
 	@RequestMapping("/results")
 	public String displayResults(Model model, HttpSession session,

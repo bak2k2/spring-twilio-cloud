@@ -1,8 +1,7 @@
 applications:
-- name: cf-session-demo
+- name: cf-session-management
   memory: 512M
-  # Add your name/initials to make the hostname unique
-  host: pcsd
+  host: cf-session-management
   domain: cfapps.io
-  path: target/psd-0.0.1-SNAPSHOT.war
-  #buildpack: https://github.com/cloudfoundry/java-buildpack  
+  path: build/cf-session-management-0.0.1-SNAPSHOT.war
+
