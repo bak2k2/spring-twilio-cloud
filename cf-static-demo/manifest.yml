@@ -1,6 +1,6 @@
 ---
 applications:
-- name: nginx-demo
+- name: static-demo
   memory: 256M
   instances: 1
-  host: nginx-demo
+  host: static-demo

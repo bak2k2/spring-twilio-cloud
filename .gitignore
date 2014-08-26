@@ -8,7 +8,6 @@ desktop.ini
 .settings/
 .project
 
-target/
 
 *.odp#
 *.gradle
