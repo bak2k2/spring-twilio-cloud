@@ -21,9 +21,10 @@ public class CloudConfiguration {
 	@Bean(name = "cloud")
 	public Cloud getCloud() {
 		try {
+			// Get the Cloud instance for the current cloud environment
 			return new CloudFactory().getCloud();
 		} catch (CloudException e) {
-
+			// Running locally, no cloud
 			return null;
 		}
 	}
