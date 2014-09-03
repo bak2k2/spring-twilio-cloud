@@ -7,7 +7,11 @@ desktop.ini
 .classpath
 .settings/
 .project
+.gradle
 
-
-*.odp#
+*.odp
 *.gradle
+=======
+/.project
+/target
+/update
