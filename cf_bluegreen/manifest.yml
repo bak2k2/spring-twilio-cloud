@@ -1,8 +1,0 @@
-applications:
-- name: bluegreen
-  memory: 256MB
-  host: bluegreen
-  domain: cfapps.io
-  path: target/bluegreen-0.0.1-SNAPSHOT.war
-
-
