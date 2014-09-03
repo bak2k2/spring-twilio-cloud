@@ -1,7 +1,7 @@
 CF Static Demo
 ==============
 
-Desmonstrates the use of Buildpack for deplying a static web-site.
+Desmonstrates the use of a Buildpack for deploying a static web-site.
 
 Requires use of the `static-file` buildpack:
 
