@@ -1,14 +1,8 @@
 CF Static Demo
 ==============
 
-Introduction
-------------
+Desmonstrates the use of Buildpack for deplying a static web-site.
 
+Requires use of the `static-file` buildpack:
 
-Building, Packaging, and Deploying
---------------------------------
-
-
-Stack
--------
-The application uses 
+    https://github.com/cloudfoundry-community/staticfile-buildpack.git 
