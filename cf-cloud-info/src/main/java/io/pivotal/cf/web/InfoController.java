@@ -1,48 +1,53 @@
 package io.pivotal.cf.web;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.app.ApplicationInstanceInfo;
+import org.springframework.cloud.service.ServiceInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * A simple controller that returns information about the execution environment.
+ * A simple controller that returns information about the current execution
+ * environment. Uses Thymeleaf to display the data - to see how, use an editor
+ * to view: <tt>src/main/resources/templates/info.html</tt>.
  */
 @Controller
 @RequestMapping("/")
 public class InfoController {
 
-	// TODO 04 - Dependency inject the CloudInformationService
+	// TODO 06 - Note how this controller uses dependency injection to obtain
+	//	         the beans. This controller does not know if we are in a cloud
+	//           or non-cloud environment.
+	// TODO 07 - Push to the cloud and view the home-page.  Now all sections
+	//           of the page should contain information, except Services.
+	
+	// TODO 08 - OPTIONAL BONUS STEP
+	//           Bind a service, any service (it won't be used) to the
+	//           application, restart and once running, refresh the home-page.
+	//           Now all sections should contain data, including Services.
+	@Resource(name="boundServices") List<ServiceInfo> serviceInfoList;
+	@Autowired ApplicationInstanceInfo applicationInstanceInfo;
+	@Autowired Properties cloudProperties;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String showInfo(Model model) {
 
-		// TODO 05 - Get the environment using System.getenv().
-		// Returns a Properties object, get the entrySet and add to the model as
-		// attribute "env". If you aren't sure, look at info.html in
-		// src/main/resources/templates to see how the Model data is being used.
-		// The template is using Thymeleaf to generate dynamic output.
+		Map<String, String> env = System.getenv();
 
-		// TODO 06 - Use the CloudInformationService to get service details
-		// Add to the model as attribute "services".
-
-		// TODO 07 - Use the CloudInformationService to get cloud properties.
-		// Returns a Properties object, get the entrySet and add to the model as
-		// attribute "properties".
-
-		// TODO 08 - Use the CloudInformationService to get application instance
-		// information and add to the Model as "appInfo"
-
-		// TODO 09 - Run the application locally and see what you see on the
-		//          home page: http://localhost:8080
+		model.addAttribute("projectName", "cf-cloud-info");
+		model.addAttribute("env", env.entrySet());
+		model.addAttribute("services",serviceInfoList);
+		model.addAttribute("properties",cloudProperties.entrySet());
+		model.addAttribute("appInfo",applicationInstanceInfo);
 		
-		// TODO 10 - Push to Cloud Foundry and view home page again
-
-		// TODO 11 - EXTRA CREDIT BONUS
-		//           Bind a service (any service) to your application and
-		//           refresh the page in the browser.  If nothing seems to
-		//           have changed, try stopping and starting the application.
-
-		return "info";
+		return "info";  // Template (view) name
 	}
 }
