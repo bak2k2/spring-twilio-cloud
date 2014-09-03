@@ -4,5 +4,6 @@ applications:
   # Add your name/initials to make the hostname unique
   host: pcsd
   domain: cfapps.io
-  path: target/psd-0.0.1-SNAPSHOT.war
+  #path: build/lib//psd-0.0.1-SNAPSHOT.war   # Gradle
+  path: target/psd-0.0.1-SNAPSHOT.war   # Maven
   #buildpack: https://github.com/cloudfoundry/java-buildpack  

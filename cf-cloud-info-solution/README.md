@@ -3,6 +3,16 @@ cf-cloud-info-solution
 
 Worked solution to the lab for the second Java Applications section showing how to access information about the Cloud enviuronmant and its services.
 
+Usage
+-----
+
+To build: use maven or gradle.
+
+To run: edit the manifest.yml, fix the path and make the host unique
+
+Details
+-------
+
 A simple, one-page web-application is provided that shows you:
 
   * the application environment
