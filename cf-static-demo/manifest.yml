@@ -3,4 +3,5 @@ applications:
 - name: static-demo
   memory: 256M
   instances: 1
-  host: static-demo
+  # Modify this to make it unique
+  host: static-demo-paul
