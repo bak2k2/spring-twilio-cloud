@@ -3,7 +3,17 @@ cf-cloud-info
 
 This is the lab for the second Java Applications section showing how to access information about the Cloud enviuronmant and its services.
 
-A simple, one-page web-application has been provided but you need to modify a couple of classes to access Cloud information (using Spring Cloud APIs).  Just follow the TODO steps.
+A simple, one-page web-application has been provided but you need to modify a couple of classes to access Cloud information (using Spring Cloud APIs).  Just follow the TODO steps as indicated by the course lab-instructions.
+
+Usage
+-----
+
+To build: use maven or gradle.
+
+To run: edit the `manifest.yml`, fix the `path` and make the `host` unique
+
+Details
+-------
 
 Because it is easier to test applications running locally before pushing them to Cloud Foundry, you are asked to write code that quietly returns null information when no Cloud environment is detected.  In ths way, you can check the application runs correctly before pushing.
 
