@@ -1,7 +1,7 @@
 spring-autoscaler-demo
 ======================
 
-Another copy of the Spring MMV Demo application for demoing auto-scaling. 
+Another copy of the ###Spring MVC Demo### application for demoing auto-scaling. 
 
 Stack
 -------
