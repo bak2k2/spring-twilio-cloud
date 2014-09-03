@@ -1,40 +1,31 @@
-Pivotal CF Workshop - Spring MVC
-================================
+Spring MVC Trouble
+==================
 
 Introduction
 ------------
 
-This is the Spring MVC sample application for the Pivotal CF Workshop.
-It is intended to demonstrate some of the basic functionality of Pivotal
-CF:
+This is the same application as the `mvc-spring-demo` but it has been deliberately broken to cause a stack-overflow (preventing deploymnet).
 
- * Pivotal CF target, login, and push
- * Pivotal CF environment variables
- * Pivotal CF service variables
- * Scaling, router and load balancing
- * Health manager and application restart
- * RDBMS services and application auto-configuration
+The aim of the exercise is to find the bug and fix it.
 
 Building, Packaging, and Deploying
---------------------------------
+----------------------------------
 
-###To get the source code and build the WAR file
+A WAR file has already been built and is in the pre-built directory.
 
-
-    git clone https://github.com/bjimerson-pivotal/cf-workshop-spring-mvc
+If you wish, you can build using maven or Gradle as you prefer.
 
     mvn clean package
+    gradle clean assemble
 
-###To run the application
+To run: first modify the manifest.yml and set path and host then push to CF:
 
-The application is set to use an embedded H2 database in non-PaaS environments,
-to take advantage of Pivotal CF's auto-configuration for services.  No
-additional configuration is necessary when running locally or in Pivotal CF.
-
-In Pivotal CF, it is assumed that a postgres service will be used.  If another
-service type, such as MySQL, is to be used, update the POM file and the manifest
-before pushing.
+    cf push cf-trouble -m 512M -n <unique-host-name> -p pre-built/cf-spring-mvc-trouble-0.0.1-SNAPSHOT.war
+    
+To do the exercise it is better to load this project into STS/Eclipse as an exiting maven project and deploy and debug from withing the IDE.  You can then find the bad code, fix it and redeploy.
 
 Stack
--------
-The application uses Spring 4, Spring Boot, Spring Data JPA, Spring Cloud, and Thymeleaf.  It can be packaged and run as either a JAR or a WAR, and it can run in cloud or non-cloud environments.
+-----
+
+The application uses Spring 4, Spring Boot, Spring Cloud, and Thymeleaf.
+
