@@ -1,8 +1,8 @@
 applications:
-- name: cf-session-demo
+- name: cf-cloud-info
   memory: 512M
   # Add your name/initials to make the hostname unique
-  host: pcsd
+  host: cf-cloud-info
   domain: cfapps.io
-  path: target/psd-0.0.1-SNAPSHOT.war
-  #buildpack: https://github.com/cloudfoundry/java-buildpack  
+  #path: build/lib/psd-0.0.1-SNAPSHOT.war  #Gradle
+  path: target/psd-0.0.1-SNAPSHOT.war  #Maven
