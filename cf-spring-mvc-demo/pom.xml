@@ -9,6 +9,7 @@
 
 	<name>cf-spring-mvc-demo</name>
 	<description>Spring Boot Project for CF demo</description>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -78,6 +79,4 @@
 		    <url>http://repo.spring.io/milestone</url>
 		</repository>
 	</repositories>
-
-	<packaging>war</packaging>
 </project>

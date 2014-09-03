@@ -4,5 +4,4 @@ applications:
   host: cf-spring-mvc-demo-paul
   # Currently defaults to PWS
   domain: cfapps.io
-  path: war/cf-spring-mvc-demo-0.0.1-SNAPSHOT.war
-
+  path: pre-built/cf-spring-mvc-demo-0.0.1-SNAPSHOT.war
