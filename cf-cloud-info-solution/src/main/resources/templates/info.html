@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Pivotal CF Workshop | Session Handling</title>
+<title>Pivotal CF Workshop | Runtime Environment</title>
 <link rel="stylesheet" href="css/foundation.css" />
 <script src="js/modernizr.js"></script>
 </head>
@@ -17,7 +17,12 @@
 				</h1>
 			</li>
 		</ul>
-		<section class="top-bar-section"></section>
+		<section class="top-bar-section">
+			<!-- Right Nav Section -->
+	    	<ul class="right">
+	      		<li class="active"><a href="#">Application: <span th:text="${projectName}">-</span></a></li>
+			</ul>
+		</section>
 	</nav>
 
 	<div class="row">
