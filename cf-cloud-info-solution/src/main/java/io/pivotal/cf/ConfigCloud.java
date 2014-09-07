@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Profile;
  * Application/Instance information and Cloud Properties.
  */
 @Configuration
-// TODO 02 - Make this configuration class active when running in a 'cloud'
+// TODO 03 - Make this configuration class active when running in a 'cloud'
 //           environment (hint: use a Spring profile)
 @Profile("cloud")
 public class ConfigCloud {
@@ -39,7 +39,7 @@ public class ConfigCloud {
 		}
 	}
 
-	// TODO 03 - Create a Spring @Bean method named boundServices.
+	// TODO 04 - Create a Spring @Bean method named boundServices.
 	//           Its signature should match the method of the same name in the
 	//           ConfigDefault class.
 	//           It should call the cloud() method to obtain the cloud, then
@@ -49,7 +49,7 @@ public class ConfigCloud {
 		return cloud().getServiceInfos();
 	}
 
-	// TODO 04 - Create a Spring @Bean method named applicationInstanceInfo.
+	// TODO 05 - Create a Spring @Bean method named applicationInstanceInfo.
 	//           Its signature should match the method of the same name in the
 	//           ConfigDefault class.
 	//           It should call the cloud() method to obtain the cloud, then obtain
@@ -59,7 +59,7 @@ public class ConfigCloud {
 		return cloud().getApplicationInstanceInfo();
 	}
 
-	// TODO 05 - Create a Spring @Bean method named cloudProperties.
+	// TODO 06 - Create a Spring @Bean method named cloudProperties.
 	//           Its signature should match the method of the same name in the
 	//           ConfigDefault class.
 	//           It should call the cloud() method to obtain the cloud, then obtain

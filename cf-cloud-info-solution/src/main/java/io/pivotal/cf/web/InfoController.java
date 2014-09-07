@@ -23,13 +23,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class InfoController {
 
-	// TODO 06 - Note how this controller uses dependency injection to obtain
+	// TODO 07 - Note how this controller uses dependency injection to obtain
 	//	         the beans. This controller does not know if we are in a cloud
 	//           or non-cloud environment.
-	// TODO 07 - Push to the cloud and view the home-page.  Now all sections
+	// TODO 08 - Push to the cloud and view the home-page.  Now all sections
 	//           of the page should contain information, except Services.
 	
-	// TODO 08 - OPTIONAL BONUS STEP
+	// TODO 09 - OPTIONAL BONUS STEP
 	//           Bind a service, any service (it won't be used) to the
 	//           application, restart and once running, refresh the home-page.
 	//           Now all sections should contain data, including Services.
