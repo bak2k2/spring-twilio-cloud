@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.gopivotal.cf.workshop.entity.Attendee;
-import com.gopivotal.cf.workshop.entity.Session;
-import com.gopivotal.cf.workshop.repository.AttendeeRepository;
-import com.gopivotal.cf.workshop.repository.SessionRepository;
 
 /**
  * Controller for the Cloud Foundry workshop - Spring MVC version.
@@ -32,12 +26,6 @@ public class CloudFoundryWorkshopController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CloudFoundryWorkshopController.class);
 
-	@Autowired
-	private AttendeeRepository attendeeRepository;
-	
-	@Autowired
-	private SessionRepository sessionRepository;
-	
 	@Autowired (required=false) Cloud cloud;
 
 	/**
@@ -77,36 +65,6 @@ public class CloudFoundryWorkshopController {
 		return "index";
 	}
 	
-	/**
-	 * Action to get a list of all attendees.
-	 * @param model The model for this action.
-	 * @return The path to the view.
-	 */
-	@RequestMapping(value = "/attendees", method = RequestMethod.GET)
-	public String attendees(Model model) {
-		
-		Iterable<Attendee> attendees = attendeeRepository.findAll();
-	
-		model.addAttribute("attendees", attendees);
-		return "attendees";
-	}
-	
-	/**
-	 * Action to get a list of all of the sessions for the specified attendee.
-	 * @param attendeeId The ID of the attendee to get the sessions for.
-	 * @param model The model for this action.
-	 * @return The path to the view.
-	 */
-	@RequestMapping(value = "/sessions", method = RequestMethod.GET)
-	public String sessions(@RequestParam("attendeeId") Long attendeeId, Model model) {
-		
-		Attendee attendee = attendeeRepository.findOne(attendeeId);
-		List<Session> sessions = sessionRepository.findByAttendee(attendee);
-		model.addAttribute("attendee", attendee);
-		model.addAttribute("sessions", sessions);
-		
-		return "sessions";
-	}
 	
 	/**
 	 * Action to initiate shutdown of the system.  In CF, the application 
