@@ -1,8 +1,6 @@
 package io.pivotal.cf;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Doesn't load any beans for itself (although it could if we needed to), but
@@ -10,9 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * the current package (and any sub-packages - such as the @Controller classes
  * in <tt>org.demo.web</tt>).
  */
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Config {
 
 }
