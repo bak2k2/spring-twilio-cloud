@@ -3,6 +3,7 @@ package io.pivotal.cf.web;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 
 import javax.annotation.Resource;
 
@@ -40,7 +41,8 @@ public class InfoController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showInfo(Model model) {
 
-		Map<String, String> env = System.getenv();
+		// Get environment variables and use to populate a sorted map
+		Map<String, String> env = new TreeMap<String, String>(System.getenv());
 
 		model.addAttribute("projectName", "cf-cloud-info-solution");
 		model.addAttribute("env", env.entrySet());
