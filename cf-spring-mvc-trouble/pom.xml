@@ -49,7 +49,7 @@
 	<properties>
 		<!--	start-class not needed when running as a WAR  -->
 		<!--	<start-class>com.gopivotal.cf.workshop.Application</start-class>  -->		
- 			<java.version>1.8</java.version>
+ 			<java.version>1.7</java.version>
 	</properties>
 
 	<repositories>
