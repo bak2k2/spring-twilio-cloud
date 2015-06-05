@@ -13,5 +13,6 @@ desktop.ini
 *.gradle
 =======
 /.project
-/target
-/update
+update/
+build/
+target/
