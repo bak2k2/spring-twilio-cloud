@@ -8,6 +8,8 @@ desktop.ini
 .settings/
 .project
 .gradle
+.idea
+*.iml
 
 *.odp
 *.gradle
