@@ -4,7 +4,7 @@ Spring MVC Trouble
 Introduction
 ------------
 
-This is the same application as the `mvc-spring-demo` but it has been deliberately broken to cause a stack-overflow (preventing deploymnet).
+This is the same application as the `mvc-spring-demo` but it has been deliberately broken to cause a stack-overflow (preventing deployment).
 
 The aim of the exercise is to find the bug and fix it.
 
