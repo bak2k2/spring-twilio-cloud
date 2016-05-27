@@ -1,0 +1,30 @@
+May 19, 2016 11:13:22 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+May 19, 2016 11:13:22 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+May 19, 2016 11:13:22 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+May 19, 2016 11:13:22 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+May 19, 2016 11:13:22 AM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+May 19, 2016 11:13:44 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+May 19, 2016 11:13:44 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+May 19, 2016 11:13:44 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+May 19, 2016 11:13:44 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+May 19, 2016 11:13:44 AM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+May 19, 2016 11:14:37 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+May 19, 2016 11:14:37 AM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+May 19, 2016 11:14:37 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+May 19, 2016 11:14:37 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+May 19, 2016 11:14:37 AM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found

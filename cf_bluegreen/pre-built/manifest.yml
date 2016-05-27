@@ -1,10 +1,10 @@
 applications:
-- name: bluegreen
+- name: blue
   memory: 256MB
   # Make this unique by adding your name, initials or somesuch
-  host: bluegreen
+  host: bluegreen_first
   domain: cfapps.io
   #path: build/lib/bluegreen-0.0.1-SNAPSHOT.war   # Gradle
-  #path: target/bluegreen-0.0.1-SNAPSHOT.war   # Maven
-  path: pre-built/blue-0.0.1-SNAPSHOT.war
+  path: ../target/bluegreen-0.0.1-SNAPSHOT.war   # Maven
+ # path: pre-built/blue-0.0.1-SNAPSHOT.war
 
