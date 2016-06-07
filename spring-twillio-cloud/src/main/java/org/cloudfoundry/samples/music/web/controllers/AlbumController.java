@@ -32,8 +32,8 @@ import java.util.Map;
 public class AlbumController {
     private static final Logger logger = LoggerFactory.getLogger(AlbumController.class);
     // Find your Account Sid and Token at twilio.com/user/account
-    public static final String ACCOUNT_SID = "AC7969b8713578ad1e2a94dd2708de3176";
-    public static final String AUTH_TOKEN = "a109ab1d741e15c8d32ecb0e91c5c787";
+    public static final String ACCOUNT_SID = "YYYY69b8713578ad1e2a94dd2708deXXXX";
+    public static final String AUTH_TOKEN = "YYYYdb1d741e15c8d32ecb0e91c5XXXX";
     private AlbumRepository repository;
 
     @Autowired
@@ -60,9 +60,7 @@ public class AlbumController {
         ResponseEntity<String> entity = null;
         try{
             Map<String, String> params1 = new HashMap<String, String>();
-            //params1.put("id", productId);
-            //params1.put("phoneNumber", respondTo);
-            //String uri = "http://spring-music-sp79.cfapps.io/products/add/{id}/{phoneNumber}";
+            //Assuming that the rest endpoint is available at this location.
             String uri = "http://spring-music-sp79.cfapps.io/products/add/"+productId+"/"+respondTo;
             //template.put(uri, null, params1);
              entity = template.exchange(uri, org.springframework.http.HttpMethod.PUT,new HttpEntity<Object>(null),String.class);
@@ -86,9 +84,6 @@ public class AlbumController {
 
         }catch(Throwable e){
            e.printStackTrace();
-            System.out.println("111111"+e.getMessage());
-            System.out.println("22222"+e.getCause().getMessage());
-//            String message = entity.getBody();
             Request request1 = new Request(HttpMethod.POST,"/2010-04-01/Accounts/"+ACCOUNT_SID+"/Messages",ACCOUNT_SID);
             request1.addPostParam("From", request.getParameter("To"));
             request1.addPostParam("To", respondTo);
@@ -101,13 +96,6 @@ public class AlbumController {
     }
 
 
-    public static Throwable getRootCause(Throwable throwable) {
-        System.out.println(throwable.getCause());
-        if (throwable.getCause() != null)
-            return getRootCause(throwable.getCause());
-
-        return throwable;
-    }
     @ResponseBody
     @RequestMapping(method = RequestMethod.PUT)
     public Album add(@RequestBody @Valid Album album) {
